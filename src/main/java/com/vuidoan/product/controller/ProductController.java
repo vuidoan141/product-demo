@@ -82,7 +82,7 @@ public class ProductController {
         if (product == null) {
             throw new ResourceNotFoundException("Product Not Found");
         }
-        return new ResponseEntity<Product>(product, HttpStatus.OK);
+        return new ResponseEntity<ProductDTO>(modelMapper.map(product, ProductDTO.class), HttpStatus.OK);
     }
 
     @DeleteMapping("/{id}")

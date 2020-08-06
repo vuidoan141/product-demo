@@ -47,7 +47,7 @@ public class CategoryController {
         if (category==null) {
             throw new ResourceNotFoundException("Category Not Found");
         }
-        return new ResponseEntity<Category>(category, HttpStatus.OK);
+        return new ResponseEntity<CategoryDTO>(modelMapper.map(category, CategoryDTO.class), HttpStatus.OK);
     }
 
     @PostMapping
